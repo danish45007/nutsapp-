@@ -14,6 +14,11 @@
 }
 
 .sidebarChat___info > h2 {
-	font-size: 16px;
+	font-size: 17px;
 	margin-bottom: 8px;
+}
+
+.sidebarChat___date {
+	display: flex;
+	margin-left: auto;
 }

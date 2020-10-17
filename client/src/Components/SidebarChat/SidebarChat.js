@@ -10,6 +10,9 @@ function SidebarChat() {
                 <h2>Room name</h2>
                 <p>Last message</p>
             </div>
+            <div className="sidebarChat___date">
+                <p>6:36 pm</p>
+            </div>
         </div>
     )
 }

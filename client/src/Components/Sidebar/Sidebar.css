@@ -56,5 +56,12 @@
 .sidebar__chat {
 	flex: 1;
 	background-color: white;
-	overflow: scroll;
+	z-index: 1;
+	flex-grow: 1;
+	overflow-y: auto;
+}
+::-webkit-scrollbar {
+	width: 6px !important;
+	height: 6px !important;
+	background-color: lightgray;
 }
