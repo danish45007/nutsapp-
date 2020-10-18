@@ -7,7 +7,7 @@ import AttachFileIcon from '@material-ui/icons/AttachFile';
 import ChatBody from '../ChatBody/ChatBody';
 import ChatFooter from '../ChatFooter/ChatFooter';
 
-function Chat() {
+function Chat({messages}) {
     return (
         <div className="chat">
             <div className="chat__header">
@@ -29,9 +29,9 @@ function Chat() {
                 </div>
             </div>
             {/*Chat Body*/}
-            <ChatBody />
+            <ChatBody messages={messages} />
             {/*Chat Footer*/}
-            <ChatFooter />
+            <ChatFooter messages={messages}/>
         </div>
     )
 }

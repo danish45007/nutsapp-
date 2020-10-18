@@ -2,90 +2,20 @@ import React from 'react'
 import "./ChatBody.css"
 
 
-function ChatBody() {
+function ChatBody({messages}) {
     return (
         <div className="chat__body">
-            <p className="chat__messgae">
+            {messages.map(message => (
+                <p className={`chat__message ${message.received && "received__message"}`} >
                 <span className="chat__name">
-                    Madhav
+                    {message.name}
                 </span>
-                    This is test message
+                    {message.message}
                 <span className="chat__timestamp">
-                    {new Date().toUTCString()}
+                    {message.timestamp}
                 </span>
             </p>
-            <p className="chat__messgae received__message">
-                <span className="chat__name">
-                    Madhav
-                </span>
-                    This is test message2
-                <span className="chat__timestamp">
-                    {new Date().toUTCString()}
-                </span>
-            </p>
-            <p className="chat__messgae">
-                <span className="chat__name">
-                    Madhav
-                </span>
-                    This is test
-                <span className="chat__timestamp">
-                    {new Date().toUTCString()}
-                </span>
-                </p>
-                <p className="chat__messgae received__message">
-                <span className="chat__name">
-                    Madhav
-                </span>
-                    This is test message2
-                <span className="chat__timestamp">
-                    {new Date().toUTCString()}
-                </span>
-            </p>
-            <p className="chat__messgae">
-                <span className="chat__name">
-                    Madhav
-                </span>
-                    This is test
-                <span className="chat__timestamp">
-                    {new Date().toUTCString()}
-                </span>
-            </p>
-            <p className="chat__messgae received__message">
-                <span className="chat__name">
-                    Madhav
-                </span>
-                    This is test message2
-                <span className="chat__timestamp">
-                    {new Date().toUTCString()}
-                </span>
-            </p>
-            <p className="chat__messgae">
-                <span className="chat__name">
-                    Madhav
-                </span>
-                    This is test
-                <span className="chat__timestamp">
-                    {new Date().toUTCString()}
-                </span>
-                </p>
-                <p className="chat__messgae received__message">
-                <span className="chat__name">
-                    Madhav
-                </span>
-                    This is test message2
-                <span className="chat__timestamp">
-                    {new Date().toUTCString()}
-                </span>
-            </p>
-            <p className="chat__messgae">
-                <span className="chat__name">
-                    Madhav
-                </span>
-                    This is test
-                <span className="chat__timestamp">
-                    {new Date().toUTCString()}
-                </span>
-            </p>
+            ))}
         </div>
     )
 }
