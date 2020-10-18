@@ -8,9 +8,17 @@ exports.SendMessage = (req, res) => {
         if (err) {
             res.status(500).send(err)
         } else {
-            res.status(200).send(`New message created \n ${data}`)
+            res.status(201).send(data)
         }
     })
+}
 
-
+exports.GetData = (req, res) => {
+    Message.find({}).exec((err, data) => {
+        if (err) {
+            res.status(500).send(err)
+        } else {
+            res.status(200).send(data)
+        }
+    })
 }
