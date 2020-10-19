@@ -27,3 +27,9 @@
 	color: gray;
 	padding: 10px;
 }
+
+.chat__footer > button {
+	border: none;
+	padding: 5px;
+	outline: none;
+}
