@@ -5,9 +5,12 @@ import Chat from './Components/Chat/Chat';
 import { useEffect } from 'react';
 import Pusher from 'pusher-js';
 import axios from './Axios';
+import Login from './Login';
+
+
 
 function App() {
-
+  const [user, setUser] = useState(null);
   const [message, setMessage] = useState([]);
 
   // getting inital message info from the DB
@@ -38,13 +41,20 @@ function App() {
   console.log(message);
 
   return (
-    <div className="app">
+    <div>
+    {!user ? (
+      <Login />
+    ) : (
+      <div className="app">
       <div className="app__body">
         <Sidebar />
         <Chat messages={message} />
       </div>
     </div>
+    )}
+    </div>
   );
 }
 
 export default App;
+
