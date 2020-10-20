@@ -11,7 +11,7 @@ function Chat({messages}) {
     return (
         <div className="chat">
             <div className="chat__header">
-                <Avatar src="https://avatars.dicebear.com/api/human/${seed}.svg" />
+                <Avatar src="https://avatars.dicebear.com/api/human/123.svg" />
                 <div className="chat__headerInfo">
                     <h3>Aditya</h3>
                     <p>Last seen...</p>
