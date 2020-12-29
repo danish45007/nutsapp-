@@ -11,7 +11,8 @@ import { useStateValue } from './StateProvider';
 
 
 function App() {
-  const [{ user }, dispatch] = useStateValue;
+  const [{ user }, dispatch] = useStateValue();
+  // const [user, setUser] = useState(null)
   const [message, setMessage] = useState([]);
 
   // getting inital message info from the DB
