@@ -1,5 +1,9 @@
 const request = require('supertest');
 const app = require('../app');
+const { setupDB } = require('../test-setup');
+
+setupDB('nutsapp-test', true);
+
 // health-check test
 test('should return welocme response', () => {
 	request(app)
@@ -13,7 +17,7 @@ test('should return welocme response', () => {
 });
 
 // post a message
-test('should return message create response', () => {
+test('should return message create response', async () => {
 	request(app)
 		.post('/v1/api/messages/new')
 		.send({
@@ -22,8 +26,6 @@ test('should return message create response', () => {
 			timestamp: '1234',
 			received: true,
 		})
-		.set('Content-Type', 'application/json')
-		.set('Accept', 'application/json')
 		.expect(201)
 		.end((err, res) => {
 			if (err) {

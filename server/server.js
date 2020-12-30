@@ -1,14 +1,7 @@
 const app = require('./app');
 const port = process.env.PORT || 8000;
-const mongoose = require('mongoose');
 var Pusher = require('pusher');
-
-const pusher = new Pusher({
-	appId: process.env.appId,
-	key: process.env.key,
-	secret: process.env.secret,
-	cluster: 'ap2',
-});
+const mongoose = require('mongoose');
 
 // db connect
 mongoose
@@ -19,6 +12,13 @@ mongoose
 	})
 	.then(() => console.log('Connected to DB'))
 	.catch((err) => console.log(err));
+
+const pusher = new Pusher({
+	appId: process.env.appId,
+	key: process.env.key,
+	secret: process.env.secret,
+	cluster: 'ap2',
+});
 
 // pusher event-trigger functionality
 const db = mongoose.connection;
