@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 import Chat from "./Chat";
-import PropTypes from "prop-types";
+import checkPropTypes from "check-prop-types";
 
 const setUp = (props = {}) => {
   const component = shallow(<Chat {...props} />);
@@ -31,12 +31,26 @@ describe("Chat Component", () => {
     expect(wrapper).toBe("Aditya");
   });
 
-  //   4
-  it("prop test", () => {
-    Chat.propTypes = {
-      messages: PropTypes.array.isRequired,
-    };
-    const wrapper = shallow(<Chat messages="tet" />);
-    expect(wrapper).toBe(["test", "test1"]);
+  // check for the props type
+  describe("Checking props types", () => {
+    it("Should not throw warning", () => {
+      const expectedProps = {
+        messages: [
+          {
+            message: "Test message",
+            name: "Message Name",
+            timestamp: "12/1/2021",
+            received: true,
+          },
+        ],
+      };
+      const propsError = checkPropTypes(
+        Chat.prototype,
+        expectedProps,
+        "props",
+        Chat.name
+      );
+      expect(propsError).toBe(undefined);
+    });
   });
 });
